@@ -1,12 +1,11 @@
 ---
 
-- hosts: group1
+- hosts: pse-parts
   tasks:
-  - name: Install lldpad package
-    yum:
-      name: lldpad
+  - name: Install atop package
+    apt:
+      name: atop
       state: latest
-  - name: check lldpad service status
-    service:
-      name: lldpad
-      state: started
+  - name: ping host
+    task:
+      - action: ping
